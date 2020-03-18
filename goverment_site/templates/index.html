@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goverment site</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/statements.css' %}">
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <ul>
+        <li><a href="{% url 'statements:create' %}">New statement</a></li>
+        <li><a href="{% url 'logout' %}">Log out</a></li>
+         <li><p>Welcome {{ user.username }}</p></li>
+    </ul>
+
+
+
+    {% else %}
+    <ul>
+        <li><a class='nav navbar-right' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user">Login</span></a></li>
+    </ul>
+    {% endif %}
+    <h1><p>Welcome to Your goverment site</p></h1>
+    <p align="center">click <a href="{% url 'statements:list' %}"><strong>here</strong></a> to see list of statements</p>
+</html>

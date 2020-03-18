@@ -1,0 +1,12 @@
+{% extends 'statements/statement_base.html' %}
+
+
+{% block body_block %}
+    {% for statement in statements %}
+    <div>
+        <p align="center"><a class='title' href="{{ statement.id }}"> {{ statement.title }} </a></p>
+    </div>
+
+    {% endfor %}
+
+{% endblock %}

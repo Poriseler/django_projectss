@@ -1,0 +1,14 @@
+{% extends 'statements/statement_base.html' %}
+
+{% block body_block %}
+<div class="container">
+    <h2>Delete {{ statement.title }}?</h2>
+
+
+<form method="POST">
+    {% csrf_token %}
+    <input type=submit value="Delete">
+    <a href="{% url 'statements:detail' pk=statement.pk %}">Cancel</a>
+</form>
+</div>
+{% endblock %}

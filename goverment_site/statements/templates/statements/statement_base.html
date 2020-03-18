@@ -1,0 +1,36 @@
+<html>
+    {% load static %}
+    <head>
+        <meta charset="'utf-8">
+        <title>Base</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/statements.css' %}">
+    </head>
+
+
+    {% if user.is_authenticated %}
+    <ul>
+        <li><a href="{% url 'statements:create' %}">New statement</a></li>
+        <li><a href="{% url 'logout' %}">Log out</a></li>
+        <li><p>Welcome {{ user.username }}</p></li>
+    </ul>
+
+
+
+
+    {% else %}
+    <ul>
+        <li><a class='nav navbar-right' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user">Login</span></a></li>
+    </ul>
+
+    {% endif %}
+
+
+    {% block body_block %}
+    {% endblock %}
+    </body>
+</html>
+
+

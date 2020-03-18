@@ -1,0 +1,20 @@
+{% extends 'statements/statement_base.html' %}
+
+{% block body_block %}
+<div class="container">
+
+<h1>
+    {% if not form.instance.pk %}
+        Create Statement
+    {% else %}
+        Update Statement
+    {% endif %}
+</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}
